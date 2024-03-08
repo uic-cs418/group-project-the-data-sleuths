@@ -1,6 +1,5 @@
-## Dataset
-
-data/ebd*
+## OS Generated Files
+.ipynb*
 data/.DS_Store
 data/.ipynb*
 .DS_Store
@@ -10,3 +9,6 @@ data/.ipynb*
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+## Dataset
+data/ebd*
