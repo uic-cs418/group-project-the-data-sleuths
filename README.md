@@ -4,7 +4,7 @@
 A pattern of higher biodiversity in wealthier neighborhoods
 ### Why we chose this problem
 To learn more about the human impact on the environment
-### Why care about urban biodiversity? 
+### Why care about urban biodiversity?
 - Higher biodiversity leads to a healthier ecosystem
 - A healthy ecosystem provides many benefits to the community, including Nutrient cycling, Pest and disease control and Mental wellness
 ### Why birds?
