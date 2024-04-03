@@ -70,6 +70,62 @@
   },
   {
    "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean Squared Error (KNN): 4.415633525599799\n"
+     ]
+    }
+   ],
+   "source": [
+    "from sklearn.preprocessing import StandardScaler\n",
+    "from sklearn.neighbors import KNeighborsRegressor\n",
+    "\n",
+    "# Feature scaling\n",
+    "scaler = StandardScaler()\n",
+    "X_train_scaled = scaler.fit_transform(X_train)\n",
+    "X_test_scaled = scaler.transform(X_test)\n",
+    "\n",
+    "# Initializing and training the KNN regressor model\n",
+    "knn_model = KNeighborsRegressor(n_neighbors=5)  # You can adjust the number of neighbors as needed\n",
+    "knn_model.fit(X_train_scaled, y_train)\n",
+    "\n",
+    "# Predicting on the test set\n",
+    "y_pred_knn = knn_model.predict(X_test_scaled)\n",
+    "\n",
+    "# Evaluating the model\n",
+    "mse_knn = mean_squared_error(y_test, y_pred_knn)\n",
+    "print(\"Mean Squared Error (KNN):\", mse_knn)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Mean Squared Error (Linear Regression): 4.346668043530024\n"
+     ]
+    }
+   ],
+   "source": [
+    "from sklearn.linear_model import LinearRegression\n",
+    "model = LinearRegression()\n",
+    "model.fit(X_train,y_train)\n",
+    "y_pred = model.predict(X_test)\n",
+    "mse_linear = mean_squared_error(y_test, y_pred)\n",
+    "print(\"Mean Squared Error (Linear Regression):\", mse_linear)"
+   ]
+  },
+  {
+   "cell_type": "code",
    "execution_count": 8,
    "metadata": {},
    "outputs": [
