@@ -13,7 +13,7 @@ To learn more about the human impact on the environment
 - Understanding how and why wildlife is distributed can help urban planners design neighborhoods that best supports the ecosystem.
 ### Hypothesis : There is lower bird diversity in low income Chicago neighborhoods.
 ### Stakeholders: Chicago City Government, Urban Planners, Nonprofit Organizations
-
+### Note : Use eBirdCleanorgFinal.ipynb
 ---
 
 Introduction:  
