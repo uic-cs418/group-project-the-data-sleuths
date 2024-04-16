@@ -30,6 +30,7 @@ def distribution(df,col):
     print("\033[1m{} distribution\033[0m\n".format(col))
     print(df_new)
     print("\n\n")
+    return df_new
 
 def monthly_distribution(df):
     monthdf = df.groupby(['OBSERVATION YEAR','OBSERVATION MONTH']).size().reset_index(name='count')
@@ -49,11 +50,8 @@ def join_datasets(df,com_areas):
 def agg_comm(series):
     return list(series)
 
-def comm_level_dataset(ebird_gdf):
-    ebird_gdf = ebird_gdf[ebird_gdf['community'].notna()]
-    grouped = ebird_gdf.groupby('community').agg(agg_comm)
-    grouped['NATIVE'] = grouped['NATIVE'].apply(lambda x: sum(x))
-    grouped = grouped.drop(columns=['geometry'])
+def aggregate_data(df,cols):
+    grouped = df.groupby(cols).agg(agg_comm).reset_index()
     return grouped
 
 def modify_ebird_dataset(ebird_gdf):
