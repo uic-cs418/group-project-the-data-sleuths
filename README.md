@@ -23,3 +23,4 @@ Introduction:
     Our hypothesis is that there is lower bird diversity in Chicago’s low income neighborhoods. To test our hypothesis, we are looking into two datasets: the Cornell Lab or ornithology- ebird Basic Dataset, and the US Census Bureau- Socioeconomic Indicators for Chicago 2008 to 2012.    
     We believe the most important stakeholders for this research are the Government of the City of Chicago, Urban Planners, and Nonprofit Organizations.  
 
+---
