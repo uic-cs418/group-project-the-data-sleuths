@@ -10,6 +10,8 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 from sklearn.svm import SVR
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.neural_network import MLPRegressor
+
 
 from abc import ABC, abstractmethod
 class MLModel(ABC): 
@@ -119,6 +121,23 @@ class GradientBoosting(MLModel):
         y_pred = self.pipeline.predict(X_test)
         return y_pred
 
+class NeuralNetwork(MLModel):
+    def __init__(self):
+        self.mean = None
+        self.col = "community"
+        model = MLPRegressor(hidden_layer_sizes=(100, 50), activation='relu', random_state=42)
+        self.pipeline = Pipeline([
+            ('preprocessor', self.gen_preprocessor(self.col)),
+            ('model', model),
+        ])
+    
+    def fit(self, X, y):
+        self.pipeline.fit(X, y)
+
+    def predict(self, X_test):
+        y_pred = self.pipeline.predict(X_test)
+        return y_pred
+
 class MLFactory():
     @staticmethod
     def get_instance(algo) -> MLModel:
@@ -132,5 +151,7 @@ class MLFactory():
             return SVRAlg()
         elif algo == "GradientBoosting":
             return GradientBoosting()
+        elif algo == "NeuralNetwork":
+            return NeuralNetwork()
         else:
             raise ValueError("Invalid shape type")
